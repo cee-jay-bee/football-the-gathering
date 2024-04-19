@@ -1,6 +1,6 @@
 <script>
     import { goto } from "$app/navigation";
-	import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+	import { getAvatarFromTeamManagers, getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
     import {dynasty} from "$lib/utils/leagueInfo"
 
     export let manager, leagueTeamManagers, key;
@@ -10,6 +10,7 @@
     // manager.roster is deprecated, pages should be using managerID now
     let rosterID = manager.roster;
     let year = null;
+    let photoName = null;
 
     if(manager.managerID) {
         const dates = getDatesActive(leagueTeamManagers, manager.managerID);
@@ -231,7 +232,7 @@
 
 <div class="manager" style="{retired ? "background-image: url(/retired.png); background-color: var(--ddd)": ""}" on:click={() => goto(`/manager?manager=${key}`)}>
     <div class="avatarHolder">
-        <img class="photo" src="{manager.photo}" alt="{manager.name}" />
+        <img class="photo" src="{manager.photo ? manager.photo : getAvatarFromTeamManagers(leagueTeamManagers, rosterID, year)}" alt="{manager.name}" />
         {#if commissioner}
             <div class="commissionerBadge">
                 <span>C</span>

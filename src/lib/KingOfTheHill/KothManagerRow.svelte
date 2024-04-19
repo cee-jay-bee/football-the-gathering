@@ -16,20 +16,17 @@
 
         ({rosterID, year} = getRosterIDFromManagerID(leagueTeamManagers, manager.managerID) || {rosterID, year});
     }
-
-    const commissioner = manager.managerID ? leagueTeamManagers.users[manager.managerID].is_owner : false;
 </script>
 
 <style>
     .manager {
         display: flex;
-        justify-content: left;
+        justify-content: center;
         align-items: center;
-        padding: 1em 0;
+        padding: 1em 0.5em;
         background-color: var(--fff);
         background-repeat: no-repeat;
         background-position: 15% 50%;
-        margin: 0.5em 0;
         border-radius: 2em;
         border: 1px solid var(--ccc);
         box-shadow: 0 0 6px 0 var(--bbb);
@@ -49,8 +46,26 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 3em;
         box-shadow: 0 0 2px 1px var(--bbb);
+    }
+
+    /* Tooltip text */
+    .avatarHolder .tooltiptext {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .avatarHolder:hover .tooltiptext {
+        visibility: visible;
     }
 
     .name {
@@ -72,63 +87,9 @@
         margin-left: .2em;
     }
 
-    .spacer {
-        flex-grow: 1;
-    }
-
-    .info {
-        display: flex;
-    }
-
-    .infoSlot {
-        text-align: center;
-        margin: 0 0.5em;
-        width: 63px;
-    }
-
-    .infoIcon {
-        display: inline-flex;
-        height: 40px;
-        width: 40px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        border: 1px solid #ccc;
-        overflow: hidden;
-        background-color: var(--fff);
-    }
-
-    .infoImg {
-        height: 30px;
-    }
-
-    .infoAnswer {
-        font-size: 0.8em;
-        color: var(--g555);
-        width: 63px;
-        text-align: center;
-        line-height: 1.2em;
-    }
-
     .avatarHolder {
         display: inline-flex;
         position: relative;
-    }
-
-    .commissionerBadge {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        bottom: -10px;
-        right: -10px;
-        height: 25px;
-        width: 25px;
-        font-weight: 600;
-        border-radius: 15px;
-        background-color: var(--blueTwo);
-        border: 1px solid var(--blueOne);
-        color: #fff;
     }
 
 	@media (max-width: 665px) {
@@ -155,32 +116,6 @@
             width: 30px;
             margin-left: 0.5em;
         }
-
-        .commissionerBadge {
-            height: 15px;
-            width: 15px;
-            font-size: 0.8em;
-        }
-
-        .infoSlot {
-            text-align: center;
-            margin: 0 0.4em;
-            width: 56px;
-        }
-
-        .infoIcon {
-            height: 30px;
-            width: 30px;
-        }
-
-        .infoImg {
-            height: 25px;
-        }
-
-        .infoAnswer {
-            font-size: 0.7em;
-            width: 56px;
-        }
     }
 
     @media (max-width: 475px) {
@@ -198,26 +133,6 @@
             height: 25px;
             width: 25px;
         }
-
-        .infoSlot {
-            text-align: center;
-            margin: 0 0.4em;
-            width: 49px;
-        }
-
-        .infoIcon {
-            height: 25px;
-            width: 25px;
-        }
-
-        .infoImg {
-            height: 22px;
-        }
-
-        .infoAnswer {
-            font-size: 0.6em;
-            width: 49px;
-        }
     }
 
     @media (max-width: 370px) {
@@ -226,13 +141,11 @@
         }
     }
 
-    .question {
-        background-color: #fff;
-    }
 </style>
 
-<div class="manager" style="{retired ? "background-image: url(/retired.png); background-color: var(--ddd)": ""}" on:click={() => goto(`/manager?manager=${key}`)}>
-    <div class="avatarHolder">
-        <img class="photo" src="{getAvatarFromTeamManagers(leagueTeamManagers, rosterID, year)}" />
+<div class="manager" on:click={() => goto(`/manager?manager=${key}`)}>
+    <div class="avatarHolder"> 
+        <img class="photo" src="{manager.photo ? manager.photo : getAvatarFromTeamManagers(leagueTeamManagers, rosterID, year)}" />
+        <span class="tooltiptext">{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</span>
     </div>
 </div>
