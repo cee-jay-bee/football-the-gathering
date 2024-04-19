@@ -350,7 +350,7 @@
 			{#if division.rosterID}
 				<div class="division">
 					{#if division.name}
-						<h6>{division.name} Division</h6>
+						<h6>{division.name}</h6>
 					{:else}
 						<h6>Regular Season Champion</h6>
 					{/if}

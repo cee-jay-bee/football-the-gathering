@@ -1,10 +1,13 @@
 <script>
 	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers, gotoManager, round } from "./utils/helperFunctions/universalFunctions";
+    import { managers } from "./utils/leagueInfo";
 
 
     export let leagueTeamManagers, stat, label, xMin, xMax, secondStat, managerID, rosterID, color, year;
 
     $: user = managerID ? leagueTeamManagers.users[managerID] : null;
+
+    console.log()
 </script>
 
 <style>
@@ -127,7 +130,7 @@
 </style>
 
 <div class="barParent">
-    <img alt="team avatar" on:click={() => gotoManager({year, leagueTeamManagers, managerID, rosterID})} style="border-color: var({color});" class="teamAvatar clickable" src="{user ? `https://sleepercdn.com/avatars/thumbs/${user.avatar}` : getAvatarFromTeamManagers(leagueTeamManagers, rosterID, year)}" />
+    <img alt="team avatar" on:click={() => gotoManager({year, leagueTeamManagers, managerID, rosterID})} style="border-color: var({color});" class="teamAvatar clickable" src={managers.at(managers.map(e => e.managerID).indexOf(user.user_id)).photo ? managers.at(managers.map(e => e.managerID).indexOf(user.user_id)).photo : `https://sleepercdn.com/images/team_logos/nfl/${managers.at(managers.map(e => e.managerID).indexOf(user.user_id)).favoriteTeam}.png`} />    
     <span class="managerName clickable" on:click={() => gotoManager({year, leagueTeamManagers, managerID, rosterID})}>
         {#if user}
             {user.display_name}
