@@ -1,6 +1,6 @@
 <script>
     import List, { Item, Graphic, Separator, Text } from '@smui/list';
-import { dynasty } from './utils/helper';
+    import { dynasty } from './utils/helper';
 
     const today = new Date();
     const resources = [
@@ -97,6 +97,15 @@ import { dynasty } from './utils/helper';
             separator: false,
             dynastyOnly: false,
         },
+        {
+            name: "Dynasty Daddy",
+            url: "https://dynasty-daddy.com/",
+            icon: "insights",
+            premium: false,
+            separator: false,
+            dynastyOnly: true,
+        },
+        
     ];
 </script>
 

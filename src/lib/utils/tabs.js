@@ -78,4 +78,9 @@ export const tabs = [
         label: 'Resources',
         dest: '/resources',
     },
+    {
+        icon: 'landscape',
+        label: 'King of the Hill',
+        dest: '/koth',
+    },
 ];
