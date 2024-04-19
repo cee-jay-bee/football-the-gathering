@@ -80,6 +80,19 @@
 		padding: 0 15px;
 	}
 
+    #main {
+        flex-grow: 1;
+        min-width: 320px;
+        margin: 0 auto;
+        padding: 60px 0;
+    }
+
+    .text {
+        padding: 0 30px;
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
     h5 {
 		text-align: center;
 		margin: 30px auto 16px;
@@ -101,14 +114,14 @@
 	}
 </style>
 
-<div class="banner">
-    <h5>
+<div id="main">
+    <div class="text">
         KING OF THE HILL
         <br><br>
         A game within the game, survivor of the strongest manager. King of the Hill is a last team standing game where each team tries to outlast everyone else.
         <br><br>
         Each week, strikes are issued to the league based on point totals. The lower your point total, the more you risk getting a strike. Three strikes and you're out.
-    </h5>
+    </div>
 </div>
 <DataTable class="draftBoard">
     <Head>
