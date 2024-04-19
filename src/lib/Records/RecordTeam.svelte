@@ -1,13 +1,17 @@
 <script>
 	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers, renderManagerNames } from "$lib/utils/helperFunctions/universalFunctions";
+    import { managers } from "$lib/utils/leagueInfo";
 
     export let leagueTeamManagers, managerID = null, rosterID = null, year, compressed = false, points = null;
 
     let user = null;
+    let managerPhoto;
 
     if(managerID) {
         user = leagueTeamManagers.users[managerID];
     }
+
+    managerPhoto = managers.at(managers.map(e => e.managerID).indexOf(managerID)).photo
 </script>
 
 <style>
@@ -63,7 +67,7 @@
 
 <div class="recordTeam">
     {#if user}
-        <img alt="team avatar" class="teamAvatar{compressed ? " compressed" : ""}" src="{`https://sleepercdn.com/avatars/thumbs/${user.avatar}`}" />
+        <img alt="team avatar" class="teamAvatar{compressed ? " compressed" : ""}" src={managerPhoto ? managerPhoto : `https://sleepercdn.com/images/team_logos/nfl/${managers.at(managers.map(e => e.managerID).indexOf(user.user_id)).favoriteTeam}.png`} />
     {:else if rosterID}
         <img alt="team avatar" class="teamAvatar{compressed ? " compressed" : ""}" src="{getAvatarFromTeamManagers(leagueTeamManagers, rosterID, year)}" />
     {/if}
