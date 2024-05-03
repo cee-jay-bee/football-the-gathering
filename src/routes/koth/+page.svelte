@@ -3,9 +3,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
     import KingOfTheHill from '$lib/KingOfTheHill/KingOfTheHill.svelte';
-    import { getNflState, leagueName, getAwards, homepageText, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
-	import { Transactions, PowerRankings, HomePost} from '$lib/components';
-	import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+    import { getNflState } from '$lib/utils/helper';
 
 
 	export let data;
@@ -18,7 +16,6 @@
     })
 
     const nflState = getNflState();
-    const podiumsData = getAwards();
 </script>
 
 <style>
