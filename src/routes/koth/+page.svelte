@@ -7,7 +7,7 @@
 
 
 	export let data;
-	const {managers, leagueTeamManagersData, currentYear} = data;
+	const {managers, leagueTeamManagersData, currentYear, kothLeagueMatchups} = data;
 
     onMount(() => {
         if(!managers.length) {
@@ -166,7 +166,7 @@
             </div>
         {:then leagueTeamManagers}
             {#if managers.length}
-                <KingOfTheHill {managers}  {leagueTeamManagers} {currentYear}/>
+                <KingOfTheHill {managers}  {leagueTeamManagers} {currentYear} {kothLeagueMatchups} {nflState}/>
             {/if}
         {:catch error}
             <!-- promise was rejected -->
