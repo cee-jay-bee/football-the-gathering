@@ -3,19 +3,17 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
     import KingOfTheHill from '$lib/KingOfTheHill/KingOfTheHill.svelte';
-    import { getNflState } from '$lib/utils/helper';
-
-
+    
 	export let data;
 	const {managers, leagueTeamManagersData, currentYear, kothLeagueMatchups} = data;
+
+    const currentState = kothLeagueMatchups.nflState;
 
     onMount(() => {
         if(!managers.length) {
             goto('/');
         }
     })
-
-    const nflState = getNflState();
 </script>
 
 <style>
@@ -166,7 +164,7 @@
             </div>
         {:then leagueTeamManagers}
             {#if managers.length}
-                <KingOfTheHill {managers}  {leagueTeamManagers} {currentYear} {kothLeagueMatchups} {nflState}/>
+                <KingOfTheHill {managers}  {leagueTeamManagers} {currentYear} {kothLeagueMatchups} {currentState}/>
             {/if}
         {:catch error}
             <!-- promise was rejected -->
@@ -176,7 +174,7 @@
     
     <div class="leagueData">
         <div class="homeBanner">
-            {#await nflState}
+            {#await currentState}
                 <div class="center">Retrieving NFL state...</div>
                 <LinearProgress indeterminate />
             {:then nflStateData}

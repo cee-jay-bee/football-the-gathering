@@ -1,7 +1,7 @@
 import {
     getLeagueTeamManagers,
     managers,
-    getKothLeagueMatchups
+    getKothLeagueMatchups,
 } from '$lib/utils/helper';
 
 export async function load() {
@@ -12,7 +12,7 @@ export async function load() {
     const props = {
         managers,
         leagueTeamManagersData,
-        kothLeagueMatchups
+        kothLeagueMatchups,
     }
 
     return props;

@@ -50,7 +50,8 @@ export const getKothLeagueMatchups = async () => {
 	}
 
 	const matchupsResponse = {
-		matchupsData
+		matchupsData,
+		nflState
 	}
 
 	return matchupsResponse;
