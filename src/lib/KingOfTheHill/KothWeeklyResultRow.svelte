@@ -1,10 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
-	import { getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
 
     export let kothTeams, leagueTeamManagers, key, manager, weeklyResult;
-
-    let year = null;
 
     const getClass = () => {
         switch(weeklyResult.strikes){
@@ -147,7 +144,6 @@
 <div class={getClass()} on:click={() => goto(`/matchups?week=${key+1}`)}>
     <div> 
         <p>{weeklyResult.points}
-            <!-- <span class="tooltiptext">{getTeamNameFromTeamManagers(leagueTeamManagers, kothTeams[manager.roster-1].manager, year)}</span> -->
         </p>
     </div>
 </div>

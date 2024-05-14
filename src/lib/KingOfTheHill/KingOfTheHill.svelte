@@ -28,7 +28,7 @@
         console.log(currentState.week)
         console.log(kothTeams)
     }
-    // currentState.week = 3
+    // currentState.week = 14
 
     const setKothTeams = () =>{
         if ( currentState.week > 0) {

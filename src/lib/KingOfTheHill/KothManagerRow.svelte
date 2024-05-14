@@ -55,8 +55,11 @@
         background-color: black;
         color: #fff;
         text-align: center;
-        padding: 5px 0;
         border-radius: 6px;
+        width: 60px;
+        bottom: 25%;
+        left: 50%;
+        margin-left: -30px;
         
         /* Position the tooltip text - see examples below! */
         position: absolute;
@@ -146,6 +149,6 @@
 <div class="manager" on:click={() => goto(`/manager?manager=${key}`)}>
     <div class="avatarHolder"> 
         <img class="photo" src="{manager.photo ? manager.photo : getAvatarFromTeamManagers(leagueTeamManagers, rosterID, year)}" />
-        <span class="tooltiptext">{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</span>
+        <p class="tooltiptext">{manager.name.substr(0, manager.name.indexOf(' '))}</p>
     </div>
 </div>
