@@ -20,7 +20,7 @@
 
 <hr />
 
-<!-- {#await articlesData}
+{#await articlesData}
 	<div class="loading">
 		<p>Retrieving fantasy news...</p>
 		<br />
@@ -28,8 +28,8 @@
 	</div>
 {:then news} -->
 	<!-- promise was fulfilled -->
-	<!-- <News {news}/> -->
-<!-- {:catch error} -->
+	<News {news}/>
+{:catch error}
 	<!-- promise was rejected -->
-	<!-- <p>Something went wrong: {error.message}</p> -->
-<!-- {/await} -->
+	<p>Something went wrong: {error.message}</p>
+{/await}
