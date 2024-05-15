@@ -214,12 +214,21 @@
             <div class="infoLabel">
                 Favorite Player
             </div>
+            {#if viewManager.name === "Ricky Hudson"}
+            <div class="infoIcon playerIcon">
+                <img class="favoritePlayer" src="/players/williebeamen.jpeg" alt="favorite player"/>
+            </div>
+            <div class="infoAnswer">
+                <p>Willie 'Steamin' Beamen</p>
+            </div>
+            {:else}
             <div class="infoIcon playerIcon">
                 <img class="favoritePlayer" src="https://sleepercdn.com/content/nfl/players/{viewManager.favoritePlayer}.jpg" alt="favorite player"/>
             </div>
             <div class="infoAnswer">
                 {players[viewManager.favoritePlayer].fn} {players[viewManager.favoritePlayer].ln}
             </div>
+            {/if}
         </div>
     {/if}
     <!-- Rebuild Mod (optional) -->
