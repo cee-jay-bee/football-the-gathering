@@ -26,7 +26,7 @@
 		<br />
 		<LinearProgress indeterminate />
 	</div>
-{:then news} -->
+{:then news}
 	<!-- promise was fulfilled -->
 	<News {news}/>
 {:catch error}
