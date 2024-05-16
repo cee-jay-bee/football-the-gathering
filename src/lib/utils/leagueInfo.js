@@ -1,5 +1,5 @@
 /*   STEP 1   */
-export const leagueID = "1051775315950960640"; // your league ID "941406981435277312"
+export const leagueID = "1051775315950960640"; // your league ID
 export const leagueName = "foREVer Fantasy League"; // your league name
 export const dues = 0; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
