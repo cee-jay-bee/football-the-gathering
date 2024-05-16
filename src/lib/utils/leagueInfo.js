@@ -1,7 +1,7 @@
 /*   STEP 1   */
-export const leagueID = "1051775315950960640"; // your league ID
-export const leagueName = "foREVer Fantasy League"; // your league name
-export const dues = 0; // (optional) used in template constitution page
+export const leagueID = "1048339646771503104"; // your league ID "941406981435277312"
+export const leagueName = "Football The Gathering"; // your league name
+export const dues = 50; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
 
