@@ -25,7 +25,7 @@
         managers.forEach(element => {
             kothTeams.push({"manager":element.roster, "strikes":0, "weeklyResults":[]})
         });
-        console.log(currentState.week)
+        console.log('week:' + currentState.week)
         console.log(kothTeams)
     }
     // currentState.week = 14
